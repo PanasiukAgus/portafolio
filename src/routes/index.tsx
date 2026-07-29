@@ -237,7 +237,8 @@ function Proyectos() {
         />
         <div className="grid gap-6 md:grid-cols-2">
           {projects.map((p, i) => (
-            key={p.title}
+      
+              key={p.title}
               href={p.url ?? "#contacto"}
               target={p.url ? "_blank" : undefined}
               rel={p.url ? "noopener noreferrer" : undefined}
