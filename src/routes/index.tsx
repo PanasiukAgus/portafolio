@@ -387,30 +387,38 @@ function Servicios() {
   );
 }
 
-import React from 'react';
+function Contacto() {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  const formData = new FormData(e.currentTarget);
-  const nombre = (formData.get("nombre") as string) || "";
-  const email = (formData.get("email") as string) || "";
-  const mensaje = (formData.get("mensaje") as string) || "";
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    setStatus("sending");
+    try {
+      const res = await fetch("https://formspree.io/f/mzdnwgan", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setStatus("sent");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
 
-  // Encodeamos las variables para evitar romper la URL con espacios, saltos de línea o símbolos
-  const subject = encodeURIComponent(`Consulta Web de ${nombre}`);
-// En la imagen está así (con un salto de línea roto o typoeado con $):
-const body = encodeURIComponent(`Email: ${email}\n\nMensaje:\n${mensaje}`);
-  window.location.href = `mailto:agustinapanasiukasesora@gmail.com?subject=${subject}&body=${body}`;
-};
-
-export function Contacto() {
   return (
     <section id="contacto" className="relative px-6 py-32 sm:px-10">
       <div className="mx-auto w-full max-w-5xl">
         <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.03] p-10 backdrop-blur-md sm:p-16">
           <div className="absolute -top-32 -right-20 h-80 w-80 rounded-full bg-neon-cyan/25 blur-3xl animate-pulse-glow" />
           <div className="absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-neon-magenta/25 blur-3xl animate-pulse-glow" />
-          
+
           <div className="relative grid gap-10 md:grid-cols-2 md:items-center">
             <div>
               <span className="text-xs font-medium uppercase tracking-[0.2em] text-neon-cyan">Contacto</span>
@@ -432,14 +440,13 @@ export function Contacto() {
             </div>
 
             <form
-              action="https://formspree.io/f/mzdnwgan"
-              method="POST"
+              onSubmit={handleSubmit}
               className="space-y-4 rounded-2xl border border-white/10 bg-background/40 p-6 backdrop-blur-xl"
             >
               <div>
                 <label className="text-xs text-muted-foreground">Nombre</label>
                 <input
-                  name="nombre" // <-- Agregado
+                  name="nombre"
                   required
                   type="text"
                   className="mt-1 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none transition-colors focus:border-neon-cyan"
@@ -449,7 +456,7 @@ export function Contacto() {
               <div>
                 <label className="text-xs text-muted-foreground">Email</label>
                 <input
-                  name="email" // <-- Agregado
+                  name="email"
                   required
                   type="email"
                   className="mt-1 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none transition-colors focus:border-neon-cyan"
@@ -459,7 +466,7 @@ export function Contacto() {
               <div>
                 <label className="text-xs text-muted-foreground">Cuéntame</label>
                 <textarea
-                  name="mensaje" // <-- Agregado
+                  name="mensaje"
                   required
                   rows={4}
                   className="mt-1 w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none transition-colors focus:border-neon-cyan"
@@ -468,18 +475,27 @@ export function Contacto() {
               </div>
               <button
                 type="submit"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-violet to-neon-magenta py-3 text-sm font-medium text-primary-foreground shadow-neon transition-transform hover:scale-[1.01]"
+                disabled={status === "sending"}
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-neon-cyan via-neon-violet to-neon-magenta py-3 text-sm font-medium text-primary-foreground shadow-neon transition-transform hover:scale-[1.01] disabled:opacity-60"
               >
-                Enviar mensaje
+                {status === "sending" ? "Enviando…" : "Enviar mensaje"}
                 <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </button>
+              {status === "sent" && (
+                <p className="text-sm text-neon-cyan">¡Gracias! Te voy a responder a la brevedad.</p>
+              )}
+              {status === "error" && (
+                <p className="text-sm text-red-400">
+                  Hubo un error al enviar. Probá de nuevo o escribime directo por mail.
+                </p>
+              )}
             </form>
           </div>
         </div>
       </div>
     </section>
   );
-} 
+}
 
 function Footer() {
   return (
@@ -517,7 +533,7 @@ function Footer() {
         </div>
       </div>
       <div className="mx-auto mt-12 flex w-full max-w-6xl flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
-        <p>© {new Date().getFullYear()} Agustina Panasiuk . Todos los derechos reservados.</p>
+        <p>© {new Date().getFullYear()} Agustina Panasiuk. Todos los derechos reservados.</p>
         <p>Diseñado y programado con cariño ✦</p>
       </div>
     </footer>
