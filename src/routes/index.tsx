@@ -237,7 +237,7 @@ function Proyectos() {
         />
         <div className="grid gap-6 md:grid-cols-2">
           {projects.map((p, i) => (
-      
+            
               key={p.title}
               href={p.url ?? "#contacto"}
               target={p.url ? "_blank" : undefined}
@@ -270,7 +270,6 @@ function Proyectos() {
     </section>
   );
 }
-
 const testimonials = [
   {
     quote:
@@ -469,7 +468,7 @@ function Footer() {
             Agustina<span className="text-gradient-neon">.Panasiuk</span>
           </a>
           <p className="mt-4 max-w-sm text-sm text-muted-foreground">
-            Diseño y desarrollo web para marcas que quieren brillar en la red. Madrid, trabajando remoto para todo el mundo.
+            Diseño y desarrollo web para marcas que quieren brillar en la red. Buenos Aires, trabajando remoto para todo el mundo.
           </p>
         </div>
         <div>
