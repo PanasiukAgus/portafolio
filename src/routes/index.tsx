@@ -387,22 +387,31 @@ function Servicios() {
   );
 }
 
+import React from 'react';
+import { Mail, Instagram, Send } from 'lucide-react'; // Ajusta según tus íconos
+
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
   const formData = new FormData(e.currentTarget);
-  const nombre = formData.get("nombre");
-  const email = formData.get("email");
-  const mensaje = formData.get("mensaje");
+  const nombre = (formData.get("nombre") as string) || "";
+  const email = (formData.get("email") as string) || "";
+  const mensaje = (formData.get("mensaje") as string) || "";
 
-  window.location.href = `mailto:agustinapanasiukasesora@gmail.com?subject=Consulta Web de ${nombre}&body=Email: ${email}%0D%0A%0D%0AMensaje:%0D%0A${mensaje}`;
+  // Encodeamos las variables para evitar romper la URL con espacios, saltos de línea o símbolos
+  const subject = encodeURIComponent(`Consulta Web de ${nombre}`);
+  const body = encodeURIComponent(`Email: ${email}\n\nMensaje:\n${mensaje}`);
+
+  window.location.href = `mailto:agustinapanasiukasesora@gmail.com?subject=${subject}&body=${body}`;
 };
-function Contacto() {
+
+export function Contacto() {
   return (
     <section id="contacto" className="relative px-6 py-32 sm:px-10">
       <div className="mx-auto w-full max-w-5xl">
         <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.03] p-10 backdrop-blur-md sm:p-16">
           <div className="absolute -top-32 -right-20 h-80 w-80 rounded-full bg-neon-cyan/25 blur-3xl animate-pulse-glow" />
           <div className="absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-neon-magenta/25 blur-3xl animate-pulse-glow" />
+          
           <div className="relative grid gap-10 md:grid-cols-2 md:items-center">
             <div>
               <span className="text-xs font-medium uppercase tracking-[0.2em] text-neon-cyan">Contacto</span>
@@ -417,18 +426,21 @@ function Contacto() {
                 <a href="mailto:agustinapanasiukasesora@gmail.com" className="flex items-center gap-3 text-sm hover:text-neon-cyan">
                   <Mail className="h-4 w-4" /> agustinapanasiukasesora@gmail.com
                 </a>
-                <a href="https://www.instagram.com/panasiukagus/" className="flex items-center gap-3 text-sm hover:text-neon-cyan">
+                <a href="https://www.instagram.com/panasiukagus/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm hover:text-neon-cyan">
                   <Instagram className="h-4 w-4" /> @panasiukagus
                 </a>
               </div>
             </div>
-             <form
-                  onSubmit={handleSubmit}
-                  className="space-y-4 rounded-2xl border border-white/10 bg-background/40 p-6 backdrop-blur-xl"
-              >
+
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-4 rounded-2xl border border-white/10 bg-background/40 p-6 backdrop-blur-xl"
+            >
               <div>
                 <label className="text-xs text-muted-foreground">Nombre</label>
                 <input
+                  name="nombre" // <-- Agregado
+                  required
                   type="text"
                   className="mt-1 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none transition-colors focus:border-neon-cyan"
                   placeholder="Cómo te llamas"
@@ -437,6 +449,8 @@ function Contacto() {
               <div>
                 <label className="text-xs text-muted-foreground">Email</label>
                 <input
+                  name="email" // <-- Agregado
+                  required
                   type="email"
                   className="mt-1 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none transition-colors focus:border-neon-cyan"
                   placeholder="tu@email.com"
@@ -445,6 +459,8 @@ function Contacto() {
               <div>
                 <label className="text-xs text-muted-foreground">Cuéntame</label>
                 <textarea
+                  name="mensaje" // <-- Agregado
+                  required
                   rows={4}
                   className="mt-1 w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none transition-colors focus:border-neon-cyan"
                   placeholder="Sobre tu proyecto, plazos, referencias…"
@@ -463,7 +479,7 @@ function Contacto() {
       </div>
     </section>
   );
-}
+} 
 
 function Footer() {
   return (
