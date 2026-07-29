@@ -204,6 +204,7 @@ const projects = [
     desc: "Tienda web creada con Tienda nube, adaptada a la marca y sus consumidores.Integraciones varias.",
     hue: "from-neon-cyan/40 to-neon-violet/40",
     url: "https://fzshop.com.ar/",
+    image: "/Szshop-preview.jpg",
   },
   {
     title: "SR Refrigeracion",
@@ -211,6 +212,7 @@ const projects = [
     desc: "Tienda web + integracion con Sistema de Gestion + Tabala mayorista ",
     hue: "from-neon-magenta/40 to-neon-cyan/30",
     url: "https://tiendadelorenasanchez.mitiendanube.com/"
+    image: "/Sr-refrigeracion-preview.jpg",
   },
   /*{
     title: "Índigo Yoga",
