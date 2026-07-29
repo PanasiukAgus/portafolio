@@ -104,9 +104,9 @@ function Hero() {
           Disponible para nuevos proyectos · 2026
         </div>
         <h1 className="font-[Space_Grotesk] text-5xl font-semibold leading-[1.05] tracking-tight sm:text-7xl md:text-8xl">
-          Diseño webs que
+          Tiendas Web que
           <br />
-          <span className="text-gradient-neon">brillan de verdad.</span>
+          <span className="text-gradient-neon">Venden de verdad.</span>
         </h1>
         <p className="mt-8 max-w-xl text-lg text-muted-foreground sm:text-xl">
           Soy Agustina Panasiuk, Creo y Diseño Tiendas Web. Creo sitios que representan negocios,
@@ -295,7 +295,7 @@ function Testimonios() {
   return (
     <section id="testimonios" className="relative px-6 py-32 sm:px-10">
       <div className="mx-auto w-full max-w-6xl">
-        <SectionTitle eyebrow="Testimonios" title="Clientas que ya brillan." />
+        <SectionTitle eyebrow="Testimonios" title="Clientes que se ya dieron el paso." />
         <div className="grid gap-6 md:grid-cols-3">
           {testimonials.map((t) => (
             <figure
