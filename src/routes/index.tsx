@@ -199,7 +199,7 @@ function SobreMi() {
 
 const projects = [
   {
-    title: "FZSHOP DETAILING",
+    title: "Fzshop Detailing",
     tag: "Comercio de Venta de Productos de Detailing",
     desc: "Tienda web creada con Tienda nube, adaptada a la marca y sus consumidores.Integraciones varias.",
     hue: "from-neon-cyan/40 to-neon-violet/40",
