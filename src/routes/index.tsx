@@ -66,7 +66,7 @@ function Nav() {
           <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-neon-cyan via-neon-violet to-neon-magenta text-primary-foreground">
             <Sparkles className="h-4 w-4" />
           </span>
-          <span className="hidden sm:inline">luna<span className="text-gradient-neon">.rios</span></span>
+          <span className="hidden sm:inline">Agustina<span className="text-gradient-neon">.Panasiuk</span></span>
         </a>
         <ul className="hidden items-center gap-1 md:flex">
           {navItems.map((item) => (
@@ -109,7 +109,7 @@ function Hero() {
           <span className="text-gradient-neon">brillan de verdad.</span>
         </h1>
         <p className="mt-8 max-w-xl text-lg text-muted-foreground sm:text-xl">
-          Soy Luna Ríos, diseñadora y desarrolladora web. Creo sitios minimalistas,
+          Soy Agustina Panasiuk, Creo y Diseño Tiendas Web. Creo sitios que representan negocios,
           modernos y con alma para marcas que no quieren pasar desapercibidas.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -129,9 +129,9 @@ function Hero() {
         </div>
         <dl className="mt-20 grid max-w-2xl grid-cols-3 gap-8 border-t border-white/10 pt-8">
           {[
-            { k: "+60", v: "proyectos entregados" },
+            { k: "+10", v: "proyectos entregados" },
             { k: "5★", v: "valoración media" },
-            { k: "6 años", v: "creando en la web" },
+            { k: "+1 años", v: "creando en la web" },
           ].map((s) => (
             <div key={s.v}>
               <dt className="font-[Space_Grotesk] text-3xl font-semibold text-gradient-neon sm:text-4xl">{s.k}</dt>
@@ -162,19 +162,19 @@ function SobreMi() {
           <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-neon-cyan/30 via-neon-violet/20 to-neon-magenta/30 blur-2xl" />
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/[0.02] backdrop-blur-md">
             <div className="absolute inset-0 grid place-items-center">
-              <div className="font-[Space_Grotesk] text-[10rem] font-bold leading-none text-gradient-neon opacity-90">LR</div>
+              <div className="font-[Space_Grotesk] text-[10rem] font-bold leading-none text-gradient-neon opacity-90">AP</div>
             </div>
             <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/10 bg-background/60 p-4 backdrop-blur-xl">
               <p className="text-xs text-muted-foreground">Actualmente en</p>
-              <p className="text-sm font-medium">Madrid · Remoto worldwide</p>
+              <p className="text-sm font-medium">Buenos Aires · Remoto worldwide</p>
             </div>
           </div>
         </div>
         <div>
           <SectionTitle eyebrow="Sobre mí" title="Estrategia + diseño + código en una sola persona." />
           <p className="text-muted-foreground">
-            Llevo más de seis años diseñando y programando sitios para marcas independientes,
-            estudios creativos y emprendedoras. Me obsesiona la tipografía, los detalles que se
+            Llevo más de un año diseñando y programando sitios para marcas independientes,
+            negocios creativos y emprendedoras. Me obsesiona la tipografía, los detalles que se
             sienten y crear webs rápidas, accesibles y con personalidad.
           </p>
           <p className="mt-4 text-muted-foreground">
@@ -199,18 +199,20 @@ function SobreMi() {
 
 const projects = [
   {
-    title: "Aurora Studio",
-    tag: "Estudio de fotografía",
-    desc: "Web editorial con galería inmersiva y reservas online.",
+    title: "FZSHOP DETAILING",
+    tag: "Comercio de Venta de Productos de Detailing",
+    desc: "Tienda web creada con Tienda nube, adaptada a la marca y sus consumidores.Integraciones varias.",
     hue: "from-neon-cyan/40 to-neon-violet/40",
+    url: "https://fzshop.com.ar/",
   },
   {
-    title: "Nébula Café",
-    tag: "Restauración",
-    desc: "Identidad + landing con menú digital y pedidos.",
+    title: "SR Refrigeracion",
+    tag: "Comercio de Insumos de Refrigeracion",
+    desc: "Tienda web + integracion con Sistema de Gestion + Tabala mayorista ",
     hue: "from-neon-magenta/40 to-neon-cyan/30",
+    url: "https://tiendadelorenasanchez.mitiendanube.com/"
   },
-  {
+  /*{
     title: "Índigo Yoga",
     tag: "Wellness",
     desc: "Plataforma de clases online con suscripción.",
@@ -221,7 +223,7 @@ const projects = [
     tag: "E-commerce",
     desc: "Tienda artesanal con checkout personalizado.",
     hue: "from-neon-cyan/30 to-neon-magenta/30",
-  },
+  },*/
 ];
 
 function Proyectos() {
@@ -235,9 +237,10 @@ function Proyectos() {
         />
         <div className="grid gap-6 md:grid-cols-2">
           {projects.map((p, i) => (
-            <a
-              key={p.title}
-              href="#contacto"
+            key={p.title}
+              href={p.url ?? "#contacto"}
+              target={p.url ? "_blank" : undefined}
+              rel={p.url ? "noopener noreferrer" : undefined}
               className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-md transition-all hover:border-white/20 hover:bg-white/[0.06]"
             >
               <div
@@ -254,8 +257,9 @@ function Proyectos() {
                   <h3 className="mt-2 font-[Space_Grotesk] text-2xl font-semibold">{p.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
                 </div>
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/10 bg-white/5 transition-all group-hover:bg-neon-cyan group-hover:text-primary-foreground group-hover:shadow-neon">
-                  <ArrowUpRight className="h-4 w-4" />
+                <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium transition-all group-hover:bg-neon-cyan group-hover:text-primary-foreground group-hover:shadow-neon">
+                  {p.url ? "Ver proyecto" : "Contactame"}
+                  <ArrowUpRight className="h-3.5 w-3.5" />
                 </span>
               </div>
             </a>
@@ -269,22 +273,22 @@ function Proyectos() {
 const testimonials = [
   {
     quote:
-      "Luna entendió mi marca en la primera llamada. El resultado superó todas mis expectativas.",
-    name: "Marta Cañete",
-    role: "Fundadora, Aurora Studio",
+      "Agus logro transmitir con orden y armonia el tremendo mundo de nicho que es el Detailing.",
+    name: "Leandro Fernandez",
+    role: "Dueño, Fzshop",
   },
-  {
-    quote:
-      "Rápida, meticulosa y con un gusto brutal. Volvería a trabajar con ella sin pensarlo.",
+ /*{
+   quote:
+    "Rápida, meticulosa y con un gusto brutal. Volvería a trabajar con ella sin pensarlo.",
     name: "Pablo Herrera",
     role: "Director creativo, Nébula",
-  },
+  }
   {
     quote:
       "Mi web pasó a convertir el triple. Además, es una gozada trabajar con ella.",
     name: "Sofía Vidal",
     role: "CEO, Índigo Yoga",
-  },
+  },*/
 ];
 
 function Testimonios() {
@@ -317,24 +321,24 @@ function Testimonios() {
 const services = [
   {
     icon: Palette,
-    title: "Diseño web",
-    desc: "Identidad digital, UI y prototipos en Figma listos para desarrollo.",
-    price: "desde 900€",
-    features: ["Wireframes + UI", "Sistema de diseño", "2 rondas de feedback"],
+    title: "Tienda web Basica",
+    desc: "Identidad digital, carga de productos hasta 100 undiades o integracion con sistema directo, carga de hasta 100 imagenes, descripciones, hasta 7 banners principales, carga de branding y mensaje de marca, pagina de sobre nosotros, y politicas de privacidad.",
+    price: "desde $200.000",
+    features: ["Creacion de web", "Contextualizacion de la web", "Carga de productos"],
   },
   {
     icon: Code2,
-    title: "Desarrollo a medida",
-    desc: "Sitios rápidos con React, animaciones sutiles y buen SEO técnico.",
-    price: "desde 1.800€",
-    features: ["React + Tailwind", "CMS conectado", "Optimización 100/100"],
+    title: "Web cargada",
+    desc: "Tienda web basica + Seo Completo + Carga 200 productos.",
+    price: "desde $500.000", 
+    features: ["Creacion de web + Seo completo", "Integraciones", "Carga de Productos"],
   },
   {
     icon: Rocket,
-    title: "Landing de lanzamiento",
+    title: "Landing con Wordpress",
     desc: "Página única lista en 10 días para lanzar tu producto o servicio.",
-    price: "desde 650€",
-    features: ["Copy incluido", "Formulario + email", "Analítica configurada"],
+    price: "desde $650.000",
+    features: ["Creacion de landing", "Formulario + email", "Integracion"],
   },
 ];
 
@@ -401,11 +405,11 @@ function Contacto() {
                 Suelo responder en menos de 24 horas.
               </p>
               <div className="mt-8 space-y-3">
-                <a href="mailto:hola@lunarios.dev" className="flex items-center gap-3 text-sm hover:text-neon-cyan">
-                  <Mail className="h-4 w-4" /> hola@lunarios.dev
+                <a href="mailto:agustinapanasiukasesora@gmail.com" className="flex items-center gap-3 text-sm hover:text-neon-cyan">
+                  <Mail className="h-4 w-4" /> agustinapanasiukasesora@gmail.com
                 </a>
-                <a href="#" className="flex items-center gap-3 text-sm hover:text-neon-cyan">
-                  <Instagram className="h-4 w-4" /> @luna.rios.web
+                <a href="https://www.instagram.com/panasiukagus/" className="flex items-center gap-3 text-sm hover:text-neon-cyan">
+                  <Instagram className="h-4 w-4" "https://www.instagram.com/panasiukagus/:" /> @panasiukagus
                 </a>
               </div>
             </div>
@@ -481,14 +485,14 @@ function Footer() {
           <p className="text-xs uppercase tracking-widest text-neon-cyan">Contacto</p>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             <li><a href="mailto:hola@lunarios.dev" className="inline-flex items-center gap-2 hover:text-foreground"><Mail className="h-3.5 w-3.5" /> hola@lunarios.dev</a></li>
-            <li><a href="#" className="inline-flex items-center gap-2 hover:text-foreground"><Instagram className="h-3.5 w-3.5" /> Instagram</a></li>
-            <li><a href="#" className="inline-flex items-center gap-2 hover:text-foreground"><Linkedin className="h-3.5 w-3.5" /> LinkedIn</a></li>
-            <li><a href="#" className="inline-flex items-center gap-2 hover:text-foreground"><Github className="h-3.5 w-3.5" /> GitHub</a></li>
+            <li><a href="https://www.instagram.com/panasiukagus/" className="inline-flex items-center gap-2 hover:text-foreground"><Instagram className="h-3.5 w-3.5" /> Instagram</a></li>
+            <li><a href="https://www.linkedin.com/in/agus-panasiuk-4834402b6/" className="inline-flex items-center gap-2 hover:text-foreground"><Linkedin className="h-3.5 w-3.5" /> LinkedIn</a></li>
+            <li><a href="https://github.com/PanasiukAgus" className="inline-flex items-center gap-2 hover:text-foreground"><Github className="h-3.5 w-3.5" /> GitHub</a></li>
           </ul>
         </div>
       </div>
       <div className="mx-auto mt-12 flex w-full max-w-6xl flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
-        <p>© {new Date().getFullYear()} Luna Ríos. Todos los derechos reservados.</p>
+        <p>© {new Date().getFullYear()} Agustina Panasiuk . Todos los derechos reservados.</p>
         <p>Diseñado y programado con cariño ✦</p>
       </div>
     </footer>
