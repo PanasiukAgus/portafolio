@@ -433,7 +433,8 @@ export function Contacto() {
             </div>
 
             <form
-              onSubmit={handleSubmit}
+              action="https://formspree.io/f/mzdnwgan"
+              method="POST"
               className="space-y-4 rounded-2xl border border-white/10 bg-background/40 p-6 backdrop-blur-xl"
             >
               <div>
