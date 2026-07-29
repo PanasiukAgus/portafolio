@@ -387,6 +387,15 @@ function Servicios() {
   );
 }
 
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  const formData = new FormData(e.currentTarget);
+  const nombre = formData.get("nombre");
+  const email = formData.get("email");
+  const mensaje = formData.get("mensaje");
+
+  window.location.href = `mailto:agustinapanasiukasesora@gmail.com?subject=Consulta Web de ${nombre}&body=Email: ${email}%0D%0A%0D%0AMensaje:%0D%0A${mensaje}`;
+};
 function Contacto() {
   return (
     <section id="contacto" className="relative px-6 py-32 sm:px-10">
@@ -413,10 +422,10 @@ function Contacto() {
                 </a>
               </div>
             </div>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="space-y-4 rounded-2xl border border-white/10 bg-background/40 p-6 backdrop-blur-xl"
-            >
+             <form
+                  onSubmit={handleSubmit}
+                  className="space-y-4 rounded-2xl border border-white/10 bg-background/40 p-6 backdrop-blur-xl"
+              >
               <div>
                 <label className="text-xs text-muted-foreground">Nombre</label>
                 <input
