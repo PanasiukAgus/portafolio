@@ -205,6 +205,16 @@ const projects = [
     hue: "from-neon-cyan/40 to-neon-violet/40",
     url: "https://fzshop.com.ar/",
     image: "/Fzshop-preview.jpg",
+      <div className="mt-8 flex flex-wrap gap-2">
+            {["Tienda Nube", "Empretienda", "Tienda Negocio", "Integraciones", "Data Entry", "SEO"].map((t) => (
+              <span
+                key={t}
+                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-muted-foreground backdrop-blur-md"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
   },
   {
     title: "SR Refrigeracion",
