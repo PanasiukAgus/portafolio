@@ -388,7 +388,6 @@ function Servicios() {
 }
 
 import React from 'react';
-import { Mail, Instagram, Send } from 'lucide-react'; // Ajusta según tus íconos
 
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
