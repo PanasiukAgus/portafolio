@@ -399,8 +399,8 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 
   // Encodeamos las variables para evitar romper la URL con espacios, saltos de línea o símbolos
   const subject = encodeURIComponent(`Consulta Web de ${nombre}`);
-  const body = encodeURIComponent(`Email: ${email}\n\nMensaje:\n${mensaje}`);
-
+// En la imagen está así (con un salto de línea roto o typoeado con $):
+const body = encodeURIComponent(`Email: ${email}\n\nMensaje:\n${mensaje}`);
   window.location.href = `mailto:agustinapanasiukasesora@gmail.com?subject=${subject}&body=${body}`;
 };
 
