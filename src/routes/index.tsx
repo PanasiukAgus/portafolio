@@ -182,7 +182,7 @@ function SobreMi() {
             no una plantilla más.
           </p>
           <div className="mt-8 flex flex-wrap gap-2">
-            {["Figma", "React", "Tailwind", "Framer Motion", "Webflow", "SEO"].map((t) => (
+            {["Tienda Nube", "Empretienda", "Tienda Negocio", "Integraciones", "Data Entry", "SEO"].map((t) => (
               <span
                 key={t}
                 className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-muted-foreground backdrop-blur-md"
