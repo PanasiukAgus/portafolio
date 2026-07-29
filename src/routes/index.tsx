@@ -211,7 +211,7 @@ const projects = [
     tag: "Comercio de Insumos de Refrigeracion",
     desc: "Tienda web + integracion con Sistema de Gestion + Tabala mayorista ",
     hue: "from-neon-magenta/40 to-neon-cyan/30",
-    url: "https://tiendadelorenasanchez.mitiendanube.com/"
+    url: "https://tiendadelorenasanchez.mitiendanube.com/",
     image: "/Sr-refrigeracion-preview.jpg",
   },
   /*{
@@ -246,11 +246,18 @@ function Proyectos() {
               rel={p.url ? "noopener noreferrer" : undefined}
               className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-md transition-all hover:border-white/20 hover:bg-white/[0.06]"
             >
-              <div
+             <div
                 className={`aspect-[4/3] w-full overflow-hidden rounded-2xl bg-gradient-to-br ${p.hue} relative`}
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,oklch(1_0_0/0.15),transparent_50%)]" />
-                <div className="absolute bottom-4 left-4 font-[Space_Grotesk] text-4xl font-semibold">
+                {p.image && (
+                  <img
+                    src={p.image}
+                    alt={`Captura del sitio ${p.title}`}
+                    className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 font-[Space_Grotesk] text-4xl font-semibold text-white drop-shadow-md">
                   0{i + 1}
                 </div>
               </div>
