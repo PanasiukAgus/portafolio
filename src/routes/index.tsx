@@ -409,7 +409,7 @@ function Contacto() {
                   <Mail className="h-4 w-4" /> agustinapanasiukasesora@gmail.com
                 </a>
                 <a href="https://www.instagram.com/panasiukagus/" className="flex items-center gap-3 text-sm hover:text-neon-cyan">
-                  <Instagram className="h-4 w-4" "https://www.instagram.com/panasiukagus/:" /> @panasiukagus
+                  <Instagram className="h-4 w-4" /> @panasiukagus
                 </a>
               </div>
             </div>
@@ -465,7 +465,7 @@ function Footer() {
             <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-neon-cyan via-neon-violet to-neon-magenta text-primary-foreground">
               <Sparkles className="h-4 w-4" />
             </span>
-            luna<span className="text-gradient-neon">.rios</span>
+            Agustina<span className="text-gradient-neon">.Panasiuk</span>
           </a>
           <p className="mt-4 max-w-sm text-sm text-muted-foreground">
             Diseño y desarrollo web para marcas que quieren brillar en la red. Madrid, trabajando remoto para todo el mundo.
@@ -484,7 +484,7 @@ function Footer() {
         <div>
           <p className="text-xs uppercase tracking-widest text-neon-cyan">Contacto</p>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            <li><a href="mailto:hola@lunarios.dev" className="inline-flex items-center gap-2 hover:text-foreground"><Mail className="h-3.5 w-3.5" /> hola@lunarios.dev</a></li>
+            <li><a href="mailto:agustinapanasiukasesora@gmail.com" className="inline-flex items-center gap-2 hover:text-foreground"><Mail className="h-3.5 w-3.5" /> agustinapanasiukasesora@gmail.com</a></li>
             <li><a href="https://www.instagram.com/panasiukagus/" className="inline-flex items-center gap-2 hover:text-foreground"><Instagram className="h-3.5 w-3.5" /> Instagram</a></li>
             <li><a href="https://www.linkedin.com/in/agus-panasiuk-4834402b6/" className="inline-flex items-center gap-2 hover:text-foreground"><Linkedin className="h-3.5 w-3.5" /> LinkedIn</a></li>
             <li><a href="https://github.com/PanasiukAgus" className="inline-flex items-center gap-2 hover:text-foreground"><Github className="h-3.5 w-3.5" /> GitHub</a></li>
