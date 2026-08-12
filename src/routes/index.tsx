@@ -204,7 +204,7 @@ const projects = [
     desc: "Tienda web creada con Tienda nube, adaptada a la marca y sus consumidores.Integraciones varias.",
     hue: "from-neon-cyan/40 to-neon-violet/40",
     url: "https://alotamibaez.com.ar/",
-    image: "",
+    image: "/alotambibaez-preview.png",
   },
   {
     title: "Fzshop Detailing",
